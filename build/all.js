@@ -8,25 +8,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-var data = [{ key: "key1", value: "value1" }, { key: "key2", value: "value2" }];
-
 var Child = (function (_React$Component) {
     _inherits(Child, _React$Component);
 
-    function Child() {
+    function Child(props) {
         _classCallCheck(this, Child);
 
-        _get(Object.getPrototypeOf(Child.prototype), "constructor", this).apply(this, arguments);
+        _get(Object.getPrototypeOf(Child.prototype), "constructor", this).call(this, props);
+        this.state = [{ key: "key1", value: "value1" }, { key: "key2", value: "value2" }];
     }
 
     _createClass(Child, [{
         key: "render",
         value: function render() {
+            var _this = this;
+
+            var content = this.state.map(function (item) {
+                return React.createElement(
+                    "li",
+                    { className: "child" },
+                    "I am: ",
+                    item.key,
+                    " and ",
+                    _this.props.firstName
+                );
+            });
             return React.createElement(
-                "div",
-                { className: "commentBox" },
-                "I am: ",
-                this.props.firstName
+                "ul",
+                null,
+                content
             );
         }
     }]);

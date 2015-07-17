@@ -3,7 +3,7 @@ var sourcemaps = require("gulp-sourcemaps");
 var babel = require("gulp-babel");
 var concat = require("gulp-concat");
 
-gulp.task("default", function () {
+gulp.task('transpile', function () {
     return gulp.src('src/*.jsx')
         .pipe(sourcemaps.init())
         .pipe(babel())
@@ -15,3 +15,6 @@ gulp.task("default", function () {
 gulp.task('watch', function() {
     gulp.watch('src/*.jsx', ['default']);
 });
+
+
+gulp.task('default', ['transpile', 'watch']);

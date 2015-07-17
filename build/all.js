@@ -15,7 +15,8 @@ var Child = (function (_React$Component) {
         _classCallCheck(this, Child);
 
         _get(Object.getPrototypeOf(Child.prototype), "constructor", this).call(this, props);
-        this.state = [{ key: "key1", value: "value1" }, { key: "key2", value: "value2" }];
+        this.state = { items: [{ key: "key1", value: "value1" }, { key: "key2", value: "value2" }],
+            counter: 0 };
     }
 
     _createClass(Child, [{
@@ -23,7 +24,7 @@ var Child = (function (_React$Component) {
         value: function render() {
             var _this = this;
 
-            var content = this.state.map(function (item) {
+            var content = this.state.items.map(function (item) {
                 return React.createElement(
                     "li",
                     { className: "child" },
@@ -36,8 +37,24 @@ var Child = (function (_React$Component) {
             return React.createElement(
                 "ul",
                 null,
-                content
+                content,
+                React.createElement(
+                    "li",
+                    null,
+                    React.createElement(
+                        "button",
+                        { type: "button", onClick: this.handleClick.bind(this), value: "Click me" },
+                        "Click me"
+                    )
+                )
             );
+        }
+    }, {
+        key: "handleClick",
+        value: function handleClick() {
+            var newCounter = this.state.counter + 1;
+            this.state.items.push({ key: "key" + newCounter, value: "value" + newCounter });
+            this.setState({ items: this.state.items, counter: newCounter });
         }
     }]);
 

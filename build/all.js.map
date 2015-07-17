@@ -1,0 +1,1 @@
+{"version":3,"sources":["test.jsx"],"names":[],"mappings":";;AAAA,KAAK,CAAC,MAAM,CACR;;;;CAAsB,EACtB,QAAQ,CAAC,cAAc,CAAC,SAAS,CAAC,CACrC,CAAC","file":"all.js","sourcesContent":["React.render(\r\n    <h1>Hello, world!</h1>,\r\n    document.getElementById('example')\r\n);\r\n"],"sourceRoot":"/source/"}

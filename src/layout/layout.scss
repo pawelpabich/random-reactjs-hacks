@@ -1,0 +1,11 @@
+@import "../mixins";
+
+#content .widgets {
+    @include display;
+    @include direction;
+    .widget {
+        padding: 15px;
+        border: 1px solid;
+        margin: 0;
+    }
+}

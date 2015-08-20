@@ -5,7 +5,7 @@ var concat = require("gulp-concat");
 var sass = require('gulp-sass');
 
 gulp.task('code', function () {
-    return gulp.src('src/*.jsx')
+    return gulp.src('src/**/*.jsx')
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(concat("all.js"))
@@ -14,18 +14,18 @@ gulp.task('code', function () {
 });
 
 gulp.task('styles', function() {
-    gulp.src('src/*.scss')
+    gulp.src('src/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(concat("all.css"))
         .pipe(gulp.dest('build'));
 });
 
 gulp.task('watch-code', function() {
-    gulp.watch('src/*.jsx', ['code']);
+    gulp.watch('src/**/*.jsx', ['code']);
 });
 
 gulp.task('watch-styles', function() {
-    gulp.watch('src/*.scss', ['styles']);
+    gulp.watch('src/**/*.scss', ['styles']);
 });
 
 

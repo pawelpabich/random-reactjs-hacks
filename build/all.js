@@ -8,35 +8,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-var Child = (function (_React$Component) {
-    _inherits(Child, _React$Component);
+var Products = (function (_React$Component) {
+    _inherits(Products, _React$Component);
 
-    function Child(props) {
-        _classCallCheck(this, Child);
+    function Products(props) {
+        _classCallCheck(this, Products);
 
-        _get(Object.getPrototypeOf(Child.prototype), "constructor", this).call(this, props);
-        this.state = { items: [{ key: "key1", value: "value1" }, { key: "key2", value: "value2" }],
-            counter: 0 };
+        _get(Object.getPrototypeOf(Products.prototype), "constructor", this).call(this, props);
+        var productIds = [0, 1, 2, 3, 4, 5, 6];
+        this.state = { productIds: productIds,
+            counter: productIds.length - 1
+        };
     }
 
-    _createClass(Child, [{
+    _createClass(Products, [{
         key: "render",
         value: function render() {
-            var _this = this;
-
-            var content = this.state.items.map(function (item) {
-                return React.createElement(
-                    "li",
-                    { className: "child" },
-                    "I am: ",
-                    item.key,
-                    " and ",
-                    _this.props.firstName
-                );
+            var content = this.state.productIds.map(function (productId) {
+                return React.createElement(Product, { productId: productId });
             });
             return React.createElement(
                 "ul",
-                null,
+                { className: "widget" },
                 content,
                 React.createElement(
                     "li",
@@ -53,41 +46,115 @@ var Child = (function (_React$Component) {
         key: "handleClick",
         value: function handleClick() {
             var newCounter = this.state.counter + 1;
-            this.state.items.push({ key: "key" + newCounter, value: "value" + newCounter });
-            this.setState({ items: this.state.items, counter: newCounter });
+            this.state.productIds.push(newCounter);
+            this.setState({ productIds: this.state.productIds, counter: newCounter });
         }
     }]);
 
-    return Child;
+    return Products;
 })(React.Component);
 
 ;
 
-var Parent = (function (_React$Component2) {
-    _inherits(Parent, _React$Component2);
+var Product = (function (_React$Component2) {
+    _inherits(Product, _React$Component2);
 
-    function Parent() {
-        _classCallCheck(this, Parent);
+    function Product() {
+        _classCallCheck(this, Product);
 
-        _get(Object.getPrototypeOf(Parent.prototype), "constructor", this).apply(this, arguments);
+        _get(Object.getPrototypeOf(Product.prototype), "constructor", this).apply(this, arguments);
     }
 
-    _createClass(Parent, [{
+    _createClass(Product, [{
         key: "render",
         value: function render() {
             return React.createElement(
-                "div",
+                "li",
                 null,
-                React.createElement(Child, { firstName: "Child13" }),
-                React.createElement(Child, { firstName: "Child33" })
+                this.props.productId
             );
         }
     }]);
 
-    return Parent;
+    return Product;
+})(React.Component);
+
+var ShoppingCart = (function (_React$Component3) {
+    _inherits(ShoppingCart, _React$Component3);
+
+    function ShoppingCart() {
+        _classCallCheck(this, ShoppingCart);
+
+        _get(Object.getPrototypeOf(ShoppingCart.prototype), "constructor", this).apply(this, arguments);
+    }
+
+    _createClass(ShoppingCart, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                { className: "widget" },
+                "ShoppingCart"
+            );
+        }
+    }]);
+
+    return ShoppingCart;
 })(React.Component);
 
 ;
 
-React.render(React.createElement(Parent, null), document.getElementById("example"));
+var Recommendations = (function (_React$Component4) {
+    _inherits(Recommendations, _React$Component4);
+
+    function Recommendations() {
+        _classCallCheck(this, Recommendations);
+
+        _get(Object.getPrototypeOf(Recommendations.prototype), "constructor", this).apply(this, arguments);
+    }
+
+    _createClass(Recommendations, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                { className: "widget" },
+                "Recommendations"
+            );
+        }
+    }]);
+
+    return Recommendations;
+})(React.Component);
+
+;
+
+var Layout = (function (_React$Component5) {
+    _inherits(Layout, _React$Component5);
+
+    function Layout() {
+        _classCallCheck(this, Layout);
+
+        _get(Object.getPrototypeOf(Layout.prototype), "constructor", this).apply(this, arguments);
+    }
+
+    _createClass(Layout, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                { className: "widgets" },
+                React.createElement(Products, null),
+                React.createElement(Recommendations, null),
+                React.createElement(ShoppingCart, null)
+            );
+        }
+    }]);
+
+    return Layout;
+})(React.Component);
+
+;
+
+React.render(React.createElement(Layout, null), document.getElementById("content"));
 //# sourceMappingURL=all.js.map

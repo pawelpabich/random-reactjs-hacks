@@ -16,12 +16,15 @@ export default class Products extends React.Component {
             return <Product productId= {productId} />
         })
         return (
-            <ul className="widget">
-                {content}
-                <li>
-                    <button type="button" onClick={this.handleClick.bind(this)} value="Click me">Click me</button>
-                </li>
-            </ul>
+            <div className="widget products">
+                Products
+                <ul>
+                    {content}
+                    <li>
+                        <button type="button" onClick={this.handleClick.bind(this)} value="Click me">Click me</button>
+                    </li>
+                </ul>
+            </div>
         )
     }
 

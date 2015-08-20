@@ -1,4 +1,6 @@
-export class Recommendations extends React.Component {
+'use strict';
+
+export default class ShoppingCart extends React.Component {
     render() {
         return (
             <div className="widget">

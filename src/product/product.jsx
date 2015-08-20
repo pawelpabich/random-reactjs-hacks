@@ -1,4 +1,6 @@
-export class Product extends React.Component {
+'use strict';
+
+export default class Product extends React.Component {
     render() {
         return (
             <li>

@@ -3,15 +3,9 @@ var sourcemaps = require("gulp-sourcemaps");
 var babel = require("gulp-babel");
 var concat = require("gulp-concat");
 var sass = require('gulp-sass');
-
-gulp.task('code', function () {
-    return gulp.src('src/**/*.jsx')
-        .pipe(sourcemaps.init())
-        .pipe(babel())
-        .pipe(concat("all.js"))
-        .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest('build'));
-});
+var babelify = require('babelify');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 gulp.task('styles', function() {
     gulp.src('src/**/*.scss')
@@ -26,6 +20,18 @@ gulp.task('watch-code', function() {
 
 gulp.task('watch-styles', function() {
     gulp.watch('src/**/*.scss', ['styles']);
+});
+
+gulp.task('code', function () {
+    browserify({
+        entries: 'src/layout/layout.jsx',
+        extensions: ['.jsx'],
+        debug: true
+    })
+    .transform(babelify)
+    .bundle()
+    .pipe(source('all.js'))
+    .pipe(gulp.dest('build'));
 });
 
 

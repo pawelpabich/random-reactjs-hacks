@@ -1,6 +1,8 @@
-var Product = require('Product')
+'use strict';
 
-export class Products extends React.Component {
+var Product = require('./../product/product.jsx')
+
+export default class Products extends React.Component {
     constructor(props)     {
         super(props);
         let productIds = [0, 1,2,3,4,5,6];

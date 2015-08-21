@@ -1,31 +1,41 @@
 'use strict';
 
+import React from 'react';
+
 import Products from './../products/products.jsx'
 import Recommendations from './../recommendations/recommendations.jsx'
 import ShoppingCart from './../shoppingcart/shoppingcart.jsx'
 
-import React from 'react';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
 
 let productIds = [0, 1,2,3,4,5,6];
 
-class Layout extends React.Component {
+export default class Layout extends React.Component {
     render() {
-
-
-
+        const { dispatch, shoppingCart} = this.props;
         return (
             <div className="widgets">
-                <Products productIds = {productIds} onAddProductClick = {(productId, count) => console.log(productId, count) }  />
+                <h1>Hello!!!</h1>
+                <Products productIds = {productIds} onAddProductClick = {(productId, count) => dispatch(addProduct(productId, count)) }  />
                 <Recommendations />
-                <ShoppingCart />
+                <ShoppingCart shoppingCart = {shoppingCart} />
             </div>
         )
     }
 };
 
+function select(state) {
+    return {
+        shoppingCart: state.shoppingCart
+    };
+}
 
-React.render(
-    <Layout />,
-    document.getElementById('content')
-);
+function addProduct(productId, count) {
+    return {
+        type: "addProduct",
+        productId,
+        count
+    }
+}
+
+//export default connect(select)(Layout);

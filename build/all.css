@@ -10,5 +10,17 @@
     border: 1px solid;
     margin: 0; }
 
+#content ul {
+  padding: 0px; }
+
+.product {
+  margin-bottom: 5px;
+  border: 1px solid; }
+  .product li {
+    list-style: none;
+    padding: 2px; }
+
 .products {
   background-color: lightgreen; }
+  .products ul > li {
+    list-style: none; }

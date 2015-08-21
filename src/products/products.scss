@@ -1,3 +1,6 @@
 .products {
     background-color: lightgreen;
+    ul > li {
+        list-style: none;
+    }
 }

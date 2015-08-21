@@ -1,6 +1,7 @@
 'use strict';
 
-var Product = require('./../product/product.jsx')
+import React from 'react';
+import Product from './../product/product.jsx'
 
 export default class Products extends React.Component {
     constructor(props)     {

@@ -4,6 +4,7 @@ import Products from './../products/products.jsx'
 import Recommendations from './../recommendations/recommendations.jsx'
 import ShoppingCart from './../shoppingcart/shoppingcart.jsx'
 
+import React from 'react';
 import { Provider } from 'react-redux';
 
 let productIds = [0, 1,2,3,4,5,6];

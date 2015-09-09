@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import Layout from 'layout.jsx';
+import Layout from './layout/layout.jsx';
 
 import { Provider} from 'react-redux';
 import { createStore, combineReducers } from 'redux';
@@ -19,18 +19,19 @@ function doNothing(state = [], action) {
     return state;
 }
 
-const eCommerece = combineReducers({
+const eCommerce = combineReducers({
     shoppingCart,
     doNothing
 });
 
 
-let store = createStore(eCommerece);
+let store = createStore(eCommerce);
 
 React.render(
     // The child must be wrapped in a function
     // to work around an issue in React 0.13.
-    <Layout />,
-
+    <Provider store={store}>
+        {() => <Layout />}
+    </Provider>,
     document.getElementById('content')
 );

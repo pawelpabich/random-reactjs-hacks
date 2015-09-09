@@ -23,7 +23,7 @@ gulp.task('watch-styles', function() {
 
 gulp.task('code', function () {
     browserify({
-        entries: 'src/layout/layout.jsx',
+        entries: 'src/index.jsx',
         extensions: ['.jsx'],
         debug: true
     })

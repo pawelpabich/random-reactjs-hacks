@@ -38,4 +38,4 @@ function addProduct(productId, count) {
     }
 }
 
-//export default connect(select)(Layout);
+export default connect(select)(Layout);

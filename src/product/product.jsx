@@ -6,9 +6,11 @@ export default class Product extends React.Component {
     render() {
         return (
             <ul className="product">
-                <li>Product: {this.props.name} for {this.props.price}</li>
+                <li>Name: {this.props.name} </li>
+                <li>Price: {this.props.price} </li>
                 <li> <input type='text' ref='count' /></li>
                 <li>
+                    Count:
                     <button onClick={e => this.handleAdd(e)}>
                         Add
                     </button>

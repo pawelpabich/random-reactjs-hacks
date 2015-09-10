@@ -17,6 +17,8 @@ function shoppingCart(state = [], action) {
 
             existingProduct.count += action.count;
             return state;
+        case "removeProduct":
+            return state.filter(product => product.name != action.productName);
         default:
             return state;
     }

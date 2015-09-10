@@ -13,8 +13,8 @@ export default class Layout extends React.Component {
         const { dispatch, shoppingCart, products, counter} = this.props;
         return (
             <div className="widgets">
-                <Products products = {products} onAddProductClick = {(productName, count) => dispatch(addProduct(productName, count)) }  />
-                <ShoppingCart shoppingCart = {shoppingCart} />
+                <Products products = {products} onAddProductClick = {(productName, count) => dispatch(addProduct(productName, count)) } />
+                <ShoppingCart shoppingCart = {shoppingCart}  onRemoveProductClick={productName => dispatch(removeProduct(productName))} />
                 <Recommendations />
             </div>
         )
@@ -33,6 +33,13 @@ function addProduct(productName, count) {
         type: "addProduct",
         productName,
         count
+    }
+}
+
+function removeProduct(productName) {
+    return {
+        type: "removeProduct",
+        productName
     }
 }
 

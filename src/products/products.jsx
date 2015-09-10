@@ -10,7 +10,9 @@ export default class Products extends React.Component {
 
     render() {
         let products =  this.props.products.map(product => {
-            return <li> <Product name={product.name} price={product.price} onAddClick={(productName, count) => this.props.onAddProductClick(productName, count)} /> </li>
+            return <li> <Product name={product.name} price={product.price}
+                                 onRemoveClick={productName => this.props.onRemoveProductClick(productName)}
+                                 onAddClick={(productName, count) => this.props.onAddProductClick(productName, count)} /> </li>
         })
         return (
             <div className="widget products">

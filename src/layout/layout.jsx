@@ -8,16 +8,14 @@ import ShoppingCart from './../shoppingcart/shoppingcart.jsx'
 
 import { connect } from 'react-redux';
 
-let productIds = [0, 1,2,3,4,5,6];
-
 export default class Layout extends React.Component {
     render() {
-        const { dispatch, shoppingCart} = this.props;
+        const { dispatch, shoppingCart, products, counter} = this.props;
         return (
             <div className="widgets">
-                <Products productIds = {productIds} onAddProductClick = {(productId, count) => dispatch(addProduct(productId, count)) }  />
-                <Recommendations />
+                <Products products = {products} onAddProductClick = {(productName, count) => dispatch(addProduct(productName, count)) }  />
                 <ShoppingCart shoppingCart = {shoppingCart} />
+                <Recommendations />
             </div>
         )
     }
@@ -25,14 +23,15 @@ export default class Layout extends React.Component {
 
 function select(state) {
     return {
-        shoppingCart: state.shoppingCart
+        shoppingCart: state.shoppingCart,
+        products: state.products
     };
 }
 
-function addProduct(productId, count) {
+function addProduct(productName, count) {
     return {
         type: "addProduct",
-        productId,
+        productName,
         count
     }
 }

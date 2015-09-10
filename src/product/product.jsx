@@ -6,7 +6,7 @@ export default class Product extends React.Component {
     render() {
         return (
             <ul className="product">
-                <li>ProductId: {this.props.productId}</li>
+                <li>Product: {this.props.name} for {this.props.price}</li>
                 <li> <input type='text' ref='count' /></li>
                 <li>
                     <button onClick={e => this.handleAdd(e)}>
@@ -20,7 +20,7 @@ export default class Product extends React.Component {
     handleAdd(e) {
         const node = React.findDOMNode(this.refs.count);
         const count = parseInt(node.value.trim());
-        this.props.onAddClick(this.props.productId, count);
+        this.props.onAddClick(this.props.name, count);
         node.value = '';
     }
 }

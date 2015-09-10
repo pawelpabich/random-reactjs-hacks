@@ -9,7 +9,14 @@ import { createStore, combineReducers } from 'redux';
 function shoppingCart(state = [], action) {
     switch (action.type) {
         case "addProduct":
-            return [...state, action.productId];
+            let existingProduct = state.find(product => product.name == action.productName ? product : undefined);
+            if (!existingProduct) {
+                let productToAdd = { name: action.productName, count: action.count}
+                return [...state, productToAdd];
+            }
+
+            existingProduct.count += action.count;
+            return state;
         default:
             return state;
     }
@@ -19,8 +26,16 @@ function counter(state = 0, action) {
     return state + 1;
 }
 
+function products(state) {
+    return [
+            {name: "Book", price: 12},
+            {name: "Laptop", price: 1212}
+        ];
+}
+
 const eCommerce = combineReducers({
     shoppingCart,
+    products,
     counter
 });
 

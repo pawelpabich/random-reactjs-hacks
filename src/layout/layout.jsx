@@ -15,7 +15,6 @@ export default class Layout extends React.Component {
         const { dispatch, shoppingCart} = this.props;
         return (
             <div className="widgets">
-                <h1>Welcome to the most awesome online store!</h1>
                 <Products productIds = {productIds} onAddProductClick = {(productId, count) => dispatch(addProduct(productId, count)) }  />
                 <Recommendations />
                 <ShoppingCart shoppingCart = {shoppingCart} />

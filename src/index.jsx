@@ -15,13 +15,13 @@ function shoppingCart(state = [], action) {
     }
 }
 
-function doNothing(state = [], action) {
-    return state;
+function counter(state = 0, action) {
+    return state + 1;
 }
 
 const eCommerce = combineReducers({
     shoppingCart,
-    doNothing
+    counter
 });
 
 

@@ -5,6 +5,7 @@ import React from 'react';
 import Products from './../products/products.jsx'
 import Recommendations from './../recommendations/recommendations.jsx'
 import ShoppingCart from './../shoppingcart/shoppingcart.jsx'
+import Menu from './../menu/menu.jsx'
 
 import { connect } from 'react-redux';
 
@@ -16,6 +17,7 @@ export default class Layout extends React.Component {
                 <Products products = {products} onAddProductClick = {(productName, count) => dispatch(addProduct(productName, count)) } />
                 <ShoppingCart shoppingCart = {shoppingCart}  onRemoveProductClick={productName => dispatch(removeProduct(productName))} />
                 <Recommendations />
+                <Menu />
             </div>
         )
     }

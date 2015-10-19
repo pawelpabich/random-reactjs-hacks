@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default class Product extends React.Component {
     render() {
@@ -20,7 +21,7 @@ export default class Product extends React.Component {
     }
 
     handleAdd(e) {
-        const node = React.findDOMNode(this.refs.count);
+        const node = ReactDOM.findDOMNode(this.refs.count);
         const count = parseInt(node.value.trim());
         this.props.onAddClick(this.props.name, count);
         node.value = '';

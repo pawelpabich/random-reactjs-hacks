@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import Layout from './layout/layout.jsx';
 
@@ -15,7 +16,7 @@ const eCommerce = combineReducers({
     products
 });
 
-React.render(
+ReactDOM.render(
     <Provider store={createStore(eCommerce)}>
         <Layout />
     </Provider>,

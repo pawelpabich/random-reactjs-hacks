@@ -2,7 +2,7 @@
 
 export default function warehouse(state) {
     return [
-            {name: "Book", price: 12},
-            {name: "Laptop", price: 1212}
+            {name: "Book", price: 12, id: 1},
+            {name: "Laptop", price: 1212, id: 2}
         ];
 }
